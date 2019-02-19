@@ -1,0 +1,27 @@
+div#padre{
+    display: flex;/*alinear elementos en el contenedor*/
+   /* flex-direction: column-reverse;/*por defecto es por filas*/
+    border: 1px solid black;
+    width: 45%;
+    height: 700px;
+    flex-wrap: wrap;/*los elementos se alinean abajo si no hay espacio manteniendo su tam original*/
+    /* justify-content: center;centra los elementos */
+    justify-content: space-around;/*deja espacios entre elementos*/
+    align-items: center;/*hijos del div centran verticalmente*/
+    /* justify-content: flex-end; alinean al final */
+    /* align-items: stretch; alinea todos los elems independiente del tamaño */
+}
+
+div.hijo{
+    background-color: orange;
+    width: 200px;
+    height: 250px;
+    border : 1px solid black;
+    order:2 ;
+}
+
+div.hijoAux{
+order:1; /*tiene mas prioridad al ordenar*/
+align-self: flex-start;
+justify-self: flex-start;
+}

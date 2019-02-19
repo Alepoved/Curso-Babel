@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="login.html" method="post">
+           
+        <fieldset>
+            <legend>Datos login </legend>
+                <div>
+                    <label for="user">Nombre usuario:</label>
+                    <input type="text" name="username" id="user" placeholder="Alejandro" autofocus>
+                    <!-- <input type="text" name="username" id="user" placeholder="Alejandro" pattern="[aA].*" empieza por a+otro caracter> -->
+                </div>
+            
+                <div>
+                    <label for="email">Correo:</label>
+                    <input type="mail" name="email" id="email" placeholder="example@gmail.com">
+                </div>
+            
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password">
+                 </div>
+            
+        </fieldset>
+   
+        
+        <fieldset>
+            <legend>Otros datos</legend>
+            <div>
+                    <label for="color">Color:</label>
+                    <input type="color" name="color" id="color">
+                </div>
+        
+                <div>
+                    <label for="url">Url pagina:</label>
+                    <input type="url" name="url" id="url">
+                </div>
+        
+                <div>
+                    <label for="verdad">Seguro?:</label>
+                     <input type="radio" name="option" id="verdad" value="si" checked>SI
+                     <input type="radio" name="option" id="verdad" value="no">NO
+                     <!-- tienen que tener el mismo name -->
+                </div>
+        
+                <div>
+                    <label for="number">Numero:</label>
+                    <input type="number" name="number" id="number">
+                </div>
+        
+                <div>
+                    <input type="file" name="file" id="file">
+                </div>
+        
+                <div>
+                    <label for="option">Selecciona una opcion</label>
+                    <select name="option" id="option">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
+        </fieldset>
+        
+
+        <button type="submit">Login</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,28 @@
+div.rel1{
+    width:25%;
+    position: relative;
+    left:500px;
+    top:600px;
+    border: 2px solid red;
+}
+
+div.rel2{
+    width: 25%;
+    left:300px;
+    top:1000px;
+    position: relative;
+    border: 2px solid blue;
+}
+
+/*Fieldset se mueve a partir de la esquina superior izquierda*/
+
+/*Relative se mueve dependiendo de otros elementos*/
+
+/*Sticky se mueve a medida que hacemos scroll*/
+
+#sticky{
+    position:static;
+    top:0px;
+    width: 100%;
+    background-color: blue;
+}

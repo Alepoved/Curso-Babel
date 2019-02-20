@@ -8,10 +8,15 @@ h2,h3{
 
 div > p{/*descendiente directo*/
     font-style: italic;
+    opacity: 0.5;
 }
 
 div p{/*todos p dentro div.No necesario descendiente directo*/
     font-weight: bold;
+    height: 50px;
+    width: 70%;
+    margin: 20px auto;
+    overflow: scroll;
 }
 
 .titulo,.subtitulo{
@@ -53,4 +58,36 @@ a:not([href*="http"]){/*contengan */
 h1:not(.subtitulo){
     text-decoration: line-through;
 }
+
+body{
+    background-color: aqua;
+}
+
+span{
+    display:block;/*salto linea*/
+}
+
+#mi_difuminado{
+    box-shadow: 20px 50px 10px 20px red;
+    width: 50%;
+}
+
+body{
+   /* background-image: url("gif.gif");*/
+    /* background-repeat: no-repeat; */
+}
+
+header{
+    background:linear-gradient(rgb(179, 174, 174),rgb(250, 253, 250));
+}
+
+#transformacion{
+    opacity:0.3;
+    transform: rotate(35deg);
+    height: 200px;
+    width: 200px;
+}
+
+
+
 

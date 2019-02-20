@@ -1,0 +1,56 @@
+*{
+    color:blue;
+}
+
+h2,h3{
+    color:yellow;
+}
+
+div > p{/*descendiente directo*/
+    font-style: italic;
+}
+
+div p{/*todos p dentro div.No necesario descendiente directo*/
+    font-weight: bold;
+}
+
+.titulo,.subtitulo{
+    text-decoration: underline;
+}
+
+#main_titulo{
+    border: 1px solid black;
+}
+
+label + input{/*aplica 1 hijo directo*/
+    content:'*';
+}
+
+label ~ input{/*aplica todos inputs detras de un label*/
+    width: 50px;
+}
+
+input[required]{
+    border: 2px solid orange;
+}
+
+a[href$=".es"]{/*Terminar en .es*/
+    color:red;
+}
+
+a[href^="www"]{
+    text-decoration: line-through;
+}
+
+a:not([href^="http"]){/*empiecen por */
+    text-decoration: overline;
+}
+
+a:not([href*="http"]){/*contengan */
+    font-size: 20px;
+}
+
+h1:not(.subtitulo){
+    text-decoration: line-through;
+}
+

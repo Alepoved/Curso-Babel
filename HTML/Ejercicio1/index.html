@@ -9,67 +9,68 @@
 </head>
 <body>
     
-    <header>
-        <h1>Mi blog</h1>
-        <nav>Buscar en la pagina</nav>
-        <ul>
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Otros blogs</a></li>
-            <li><a href="#">Sobre mi</a></li>
+    <header id="barra_superior">
+        <h1 id="titulo">Mi blog</h1>
+        <!-- <nav>Buscar en la pagina</nav> -->
+        <ul id="cont_links">
+            <li class="link"><a href="#">Inicio</a></li>
+            <li class="link"><a href="#">Otros blogs</a></li>
+            <li class="link"><a href="#">Sobre mi</a></li>
         </ul>
     </header>
-
-    <section div="contenedorArticulos">
-        
-        <article>
-             <header>
-                 <h3>Mi primer dia en babel</h3>
-             </header>
-            <p>He aprendido a usar los diferentes comandos de git</p>
-               <ul>
-                    <li> git config</li>
-                    <p> Uno de los comandos más usados en git es git config, que puede ser usado para establecer una configuración específica de usuario, como sería el caso del email, un algoritmo preferido para diff, nombre de usuario y tipo de formato, etc… Por ejemplo, el siguiente comando se usa para establecer un email:
-                    git config --global user.email sam@google.com</p>
-                    <li> git init</li>
-                    <p> Este comando se usa para crear un nuevo repertorio GIT:</p>
-                    <li> git add</li>
-                    <p> Este comando puede ser usado para agregar archivos al index. Por ejemplo, el siguiente comando agrega un nombre de archivo temp.txt en el directorio local del index:
-                    git add temp.txt
-                    </p>
-                    <li> git clone</li>
-                    <p>  Este comando se usa con el propósito de revisar repertorios. Si el repertorio está en un servidor remoto se tiene que usar el siguiente comando:
-                        git clone alex@93.188.160.58:/path/to/repository
-                        Pero si estás por crear una copia local funcional del repertorio, usa el comando:
-                        git clone /path/to/repository
-                    </p>
-                    <li>  git commit </li>
-                    <p> El comando commit es usado para cambiar a la cabecera. Ten en cuenta que cualquier cambio comprometido no afectara al repertorio remoto. Usa el comando:
-                        git commit –m “Message to go with the commit here”
-                        git status
-                        Este comando muestra la lista de los archivos que se han cambiado junto con los archivos que están por ser añadidos o comprometidos
-                    </p>
-               </ul>
-        </article>
-        <article>
-            <header>
-                <h1>Mi segundo dia en babel</h1>
-            </header>
-            <p>Pendiente de creacion...</p>
-            <img src="imagen.png" alt="Creando">
-            <img src="gif.gif" alt="Animacion">
-        </article>
-    </section>
-
-    <aside>
-        <h3>
-            <a href="https://github.com/Alepoved/AW/tree/master/Watched">Mi github</a>
-            <a href="https://babel.es/es/personas">Perfil en babel</a>
-            <a href="pagina2.html" target="_blank">Mi otra pagina</a>
-            <a href="#parrafo3">Ir al parrafo 3</a>
-            <a href="mailto:alejandro.povedano@babel.es">Correo</a>
+    <div id="cont_principal">
+        <section id="cont_articulos">
+            <article>
+                 <header>
+                     <h3>Mi primer dia en babel</h3>
+                 </header>
+                <p>He aprendido a usar los diferentes comandos de git</p>
+                   <ul class="ul_article">
+                        <li> git config</li>
+                        <p> Uno de los comandos más usados en git es git config, que puede ser usado para establecer una configuración específica de usuario, como sería el caso del email, un algoritmo preferido para diff, nombre de usuario y tipo de formato, etc… Por ejemplo, el siguiente comando se usa para establecer un email:
+                        git config --global user.email sam@google.com</p>
+                        <li> git init</li>
+                        <p> Este comando se usa para crear un nuevo repertorio GIT:</p>
+                        <li> git add</li>
+                        <p> Este comando puede ser usado para agregar archivos al index. Por ejemplo, el siguiente comando agrega un nombre de archivo temp.txt en el directorio local del index:
+                        git add temp.txt
+                        </p>
+                        <li> git clone</li>
+                        <p>  Este comando se usa con el propósito de revisar repertorios. Si el repertorio está en un servidor remoto se tiene que usar el siguiente comando:
+                            git clone alex@93.188.160.58:/path/to/repository
+                            Pero si estás por crear una copia local funcional del repertorio, usa el comando:
+                            git clone /path/to/repository
+                        </p>
+                        <li>  git commit </li>
+                        <p> El comando commit es usado para cambiar a la cabecera. Ten en cuenta que cualquier cambio comprometido no afectara al repertorio remoto. Usa el comando:
+                            git commit –m “Message to go with the commit here”
+                            git status
+                            Este comando muestra la lista de los archivos que se han cambiado junto con los archivos que están por ser añadidos o comprometidos
+                        </p>
+                   </ul>
+            </article>
+            <article>
+                <header>
+                    <h1>Mi segundo dia en babel</h1>
+                </header>
+                <p>Pendiente de creacion...</p>
+                <img src="imagen.png" alt="Creando">
+                <!-- <img src="gif.gif" alt="Animacion"> -->
+            </article>
+        </section>
+        <aside id="cont_aside">
             
-        </h3>
-    </aside>
+                <h3><a href="https://github.com/Alepoved/AW/tree/master/Watched">Mi github</a></h3>
+                <h3><a href="https://babel.es/es/personas">Perfil en babel</a></h3>
+                <h3><a href="pagina2.html" target="_blank">Mi otra pagina</a></h3>
+                <h3><a href="#parrafo3">Ir al parrafo 3</a></h3>
+                <h3><a href="mailto:alejandro.povedano@babel.es">Correo</a></h3>
+            
+        </aside>
+    </div>
+    
+
+   
     <p id=parrafo1>
         <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto nemo dolore, repellat enim, doloremque, sequi maxime officiis asperiores beatae iusto illo expedita explicabo? Fugit velit veritatis iusto illum corrupti earum?</span>
         <span>Nulla tenetur inventore quisquam minus explicabo consequuntur molestiae natus aspernatur ipsam eius reprehenderit fugit eligendi veritatis ea, ullam facere, eaque sit odit, repudiandae est quaerat? Commodi amet ullam animi accusantium?</span>

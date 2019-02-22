@@ -37,13 +37,6 @@ section#cont_articulos{
     word-wrap: break-word;
 }
 
-@media screen and (min-width:780px){
-    /* aside#cont_aside{
-        display:flex;
-        flex-wrap: wrap;
-    } */
-}
-
 @media screen and (max-width:650px){
     /* aside#cont_aside{
         display:flex;

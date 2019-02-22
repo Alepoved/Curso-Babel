@@ -76,4 +76,41 @@ div#cont_pregunta{
         border:none;
     }
 
+}
+
+@media only screen and (max-width: 361px) {
+    
+    .col{
+      margin:0px;
+    }
+
+    .container{
+        height: 100% !important;
+        justify-content: none !important;
+    }
+
+    div#cont_pregunta{
+        width: 100%;
+        background-color:#d6d8d9;
+    }
+
+    .col{
+        width: 100%;
+    }
+
+    .row{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+    }
+
+    .respuesta{
+        margin:15px;
+    }
+
+    #pregunta{
+        border:none;
+    }
+
 } 

@@ -76,7 +76,7 @@ SELECT o.titulo FROM ofertas o JOIN ofertas_usuarios ou ON o.id=ou.oferta_id WHE
 -- Obtener el número total de ofertas a las que se ha apuntado el usuario con id 3.
 SELECT count(*) FROM ofertas o JOIN ofertas_usuarios ou ON o.id=ou.oferta_id WHERE ou.usuario_id=3;
 -- Obtener el nombre de los usuarios que se han apuntado a la oferta con id 2.
-SELECT u.nombre,u.apellidos FROM usuarios u JOIN ofertas_usuarios ou ON u.id=ou.usuario_id  WHERE u.id=2;
+SELECT distinct(u.nombre),u.apellidos FROM usuarios u JOIN ofertas_usuarios ou ON u.id=ou.usuario_id  WHERE u.id=2;
 -- Obtener el número total de usuarios que se han apuntado a la oferta con id 2.
 SELECT count(*) FROM usuarios u JOIN ofertas_usuarios ou ON u.id=ou.usuario_id  WHERE ou.oferta_id=2;
 -- Obtener las empresas que no han publicado ninguna oferta.
@@ -85,6 +85,7 @@ SELECT e.nombre FROM empresas e WHERE e.id NOT IN( SELECT o.empresa_id FROM ofer
 SELECT u.nombre FROM usuarios u WHERE u.id NOT IN( SELECT ou.usuario_id FROM ofertas_usuarios ou);
 -- Obtener las empresas que han publicado más de 3 ofertas.
 SELECT e.nombre FROM empresas e WHERE  (SELECT count(*) FROM ofertas o WHERE e.id=o.empresa_id) >3;
+SELECT e.nombre FROM empresas e JOIN ofertas o ON e.id=o.empresa_id GROUP BY e.nombre HAVING COUNT(*) > 3;
 -- Obtener los usuarios que se han apuntado a más de 3 ofertas.
 SELECT u.nombre,u.apellidos FROM usuarios u WHERE (SELECT count(*) FROM ofertas_usuarios ou WHERE u.id=ou.usuario_id) >=3;
 -- Obtener las ofertas con el número de usuarios que hay apuntados ordenadas por mayor número de apuntados.

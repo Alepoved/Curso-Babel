@@ -1,0 +1,18 @@
+En un restaurante y el usuario no tiene que esperar al camarero
+el cliente puede realizar pedidos. los pedidos tienen platos, bebida postre..
+cada plato tiene que ser de un tipo.(entrantes, primeros, segundos y postres,bebidas).
+los tipos estan creados por el admin.
+Cada plato que se añada al pedido sera de un unico tipo.
+Tiene que tener precio, nombre, descripcion.
+Los pedidos contienen platos. Cada usuario tiene un solo pedidio. Marcar si el pedido esta pagado o no.
+Cada vez que se añade un plato, tiene que haber una nota (no quiero con cebolla) una por cada plato.Puede no haber nota
+bebida esta incluida en la tabla plato.
+tabla de categorias o tipo de plato.
+Una vez que el cliente manda el pedido:
+	cocinero : cocina los platos
+	camarero : encarga de las bebidas
+Cada item de cada pedido esta asignado a una persona
+Cada item tiene un estado (espera, cocinando, terminado de cocinar,enviando,entregado)
+No todo el mundo puede cambiar el estado de un plato. 
+El cocinero solo tiene permiso para pasar de cocinando a terminado 
+El camarero solo tiene permiso para pasar de enviando a entregado

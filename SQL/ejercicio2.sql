@@ -51,7 +51,8 @@ SELECT a.nombre,min(a.precio) FROM articulos a ORDER BY a.precio;
 SELECT a.nombre,a.precio FROM articulos a WHERE a.precio=(select min(precio) from articulos);
 -- 1.15. Obtener una lista con el nombre y precio de los artículos más caros de cada
 -- proveedor (incluyendo el nombre del proveedor).
-SELECT a.nombre,max(a.precio),f.nombre FROM articulos a JOIN fabricantes f ON a.fabricante=f.codigo GROUP BY f.nombre;
+SELECT a.nombre,max(a.precio),f.nombre FROM articulos a JOIN fabricantes f ON a.fabricante=f.codigo GROUP BY f.codigo;
+select max(precio) from articulos a GROUP BY a.fabricante;
 -- 1.16. Añadir un nuevo producto: Altavoces de 70 € (del fabricante 2).
 INSERT INTO articulos (nombre,precio,fabricante) VALUES ("altavoces",70,2);
 -- 1.17. Cambiar el nombre del producto 8 a 'Impresora Laser'.

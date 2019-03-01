@@ -194,6 +194,15 @@ e = (n1,n2) => {
     return n1 + n2;
 }
 
+arrayLoteria = [3,2,1,4,5,6,7,8];
+
+function getNumLoteria(n1,...arrayLoteria) {
+    console.log(`Sorteo numero ${n1} --- ${arrayLoteria.sort()}`);
+}
+
+
+
+
 
 
 

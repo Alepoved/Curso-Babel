@@ -73,8 +73,6 @@ coche.prototype.getInfo = function(){
     return this;
 }
 
-
-
 const coche1 = new coche("ford","kuga","rojo");
 const coche4 = new coche("ford","fiesta","rojo");
 const coche2 = new coche("seat","ibiza","azul");

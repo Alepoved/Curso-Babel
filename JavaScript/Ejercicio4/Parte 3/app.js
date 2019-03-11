@@ -11,8 +11,14 @@ function getDatos() {
             console.log(datos);
             datos.forEach(elem => {
                 console.log(elem);
-                ul.innerHTML += `<li> ${Object.values(elem)[0]}
+                if(Object.values(elem)[1]> 0){
+                ul.innerHTML += `<li style="background-color:green;"> ${Object.values(elem)[0]}
                 ${Object.values(elem)[1]}</li>`;
+                }
+                else{
+                    ul.innerHTML += `<li style="background-color:red;"> ${Object.values(elem)[0]}
+                    ${Object.values(elem)[1]}</li>`;
+                }
             });
         }
     });

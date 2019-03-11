@@ -1,5 +1,5 @@
 Inicializar el servicio:
-Terminal 1: mongod --dbpath C:\Users\alejandro.povedano\Documents\Curso-Babel\MongoDB\data
+Terminal 1: C:\Program Files\MongoDB\Server\4.0\bin>mongod --dbpath C:\Users\alejandro.povedano\Documents\Programas\MongoDB\data
 Terminal 2: C:\Program Files\MongoDB\Server\4.0\bin>mongo localhost:27017/prueba
 
 

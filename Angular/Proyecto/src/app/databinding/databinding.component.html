@@ -1,0 +1,19 @@
+<app-hijo1 [nombrePadre]="nombre"></app-hijo1>
+<app-hijo2></app-hijo2>
+
+<h1>Data binding</h1>
+<h2>String Interpolation</h2>
+<p>Me llamo {{ nombre }}</p>
+<h2>Property Binding</h2>
+<input type="text" [disabled]="!modoEditar" placeholder="Escribe...">
+<h2>Event binding</h2>
+<button type="button" (click)="cambiarModoEditar()">Modo Editar: {{ modoEditar==true ? "activado" : "desactivado" }}</button>
+<p>Datos: {{ personaje.nombre }} {{ personaje.apellido }}</p>
+<input type="text" [(ngModel)]="personaje.nombre">
+<input type="text" [(ngModel)]="personaje.apellido">
+<h2>Variable de plantillas</h2>
+<input type="text" #nuevoNombre>
+<button type="text" (click)="cambiarNombre(nuevoNombre.value)">Cambiar nombre de personaje</button>
+<h2>Mi two way binding</h2>
+<input type="text" #myInput [value]="personaje.nombre" (input)="cambiarNombre(myInput.value)">
+<!-- <input type="text" [value]="personaje.nombre" (input)="cambiarNombre($event.target.value)"> -->

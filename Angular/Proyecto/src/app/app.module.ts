@@ -7,13 +7,24 @@ import { DatabindingComponent } from './databinding/databinding.component';
 import { FormsModule } from "@angular/forms";
 import { Hijo1Component } from './databinding/hijo1/hijo1.component';
 import { Hijo2Component } from './databinding/hijo2/hijo2.component';
+import { PipesComponent } from './pipes/pipes.component';
+import { DoublePipe } from './pipes/double.pipe';
+import { ReversePipe } from './pipes/reverse.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
+import { DirectivasComponent } from './directivas/directivas.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     DatabindingComponent,
     Hijo1Component,
-    Hijo2Component
+    Hijo2Component,
+    PipesComponent,
+    DoublePipe,
+    ReversePipe,
+    FilterPipe,
+    DirectivasComponent,
   ],
   imports: [
     BrowserModule,

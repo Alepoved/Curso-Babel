@@ -9,6 +9,7 @@ export class DatabindingComponent implements OnInit {
 
   nombre: string = "Alejandro";
   modoEditar = true;
+  nombreHijo1: string ="Nombre hijo 1";
 
   personaje = {
     nombre: "Homer",

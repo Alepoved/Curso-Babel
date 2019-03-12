@@ -1,5 +1,6 @@
-<app-hijo1 [nombrePadre]="nombre"></app-hijo1>
-<app-hijo2></app-hijo2>
+<app-hijo1 [nombrePadre]="nombre" (nombreCambiado)="nombreHijo1=$event"></app-hijo1>
+<app-hijo2 [nombrePadre]="nombre" [nombreHermano] ="nombreHijo1"></app-hijo2>
+
 
 <h1>Data binding</h1>
 <h2>String Interpolation</h2>

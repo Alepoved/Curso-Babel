@@ -1,0 +1,30 @@
+<h1>Pipes Puros</h1>
+
+<p>Texto: {{ texto }}</p>
+<p>Texto: {{ texto | uppercase }}</p>
+<p>Texto: {{ texto | lowercase }}</p>
+<p>Texto: {{ texto | reverse | uppercase }}</p>
+
+<p>Fecha: {{ fecha }}</p>
+<p>Fecha: {{ fecha | date:"dd 'del' MMM 'de' yyyy"}}</p>
+
+<p>Precio: {{ precio }}</p>
+<p>Precio: {{ precio | currency:"EUR"}}</p>
+<p>Precio: {{ precio | currency:"USD"}}</p>
+<p>Precio: {{ precio | double }}</p>
+<p>Precio: {{ precio | double:3:7 }}</p>
+
+<h1>Pipes Impuros</h1>
+<input type="text" (change)="starks.push($event.target.value)">
+<ul>
+    <li *ngFor="let nombre of starks">{{nombre}}</li>
+</ul>
+<ul>
+    <li *ngFor="let nombre of starks | filter:'r'">{{nombre}}</li>
+</ul>
+
+<p>Mensaje: {{mensaje}}</p>
+<p>Mensaje: {{mensaje|async}}</p> <!--  no muestra el valor hasta que se cumpla la promesa -->
+
+
+

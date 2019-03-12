@@ -12,6 +12,7 @@ import { DoublePipe } from './pipes/double.pipe';
 import { ReversePipe } from './pipes/reverse.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { DirectivasComponent } from './directivas/directivas.component';
+import { MarcarDirective } from './directivas/marcar.directive';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { DirectivasComponent } from './directivas/directivas.component';
     ReversePipe,
     FilterPipe,
     DirectivasComponent,
+    MarcarDirective,
   ],
   imports: [
     BrowserModule,

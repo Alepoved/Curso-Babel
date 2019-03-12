@@ -1,9 +1,45 @@
 <h1>Directivas</h1>
+
 <h2>De atributo</h2>
 <p [ngStyle]="{color: 'blue', textDecoration: 'underline'}">Texto subrayado azul</p>
-<p [ngClass]="{tachado:true, letraAmarilla:true}">Texto tachado amarillo</p>
-
-
+<p [ngClass]="{tachado:true, letraRoja:true}">Texto tachado amarillo??</p>
+<p appMarcar>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores veritatis tempora distinctio aliquam necessitatibus? Rerum, iste voluptates dolore optio incidunt sed, quidem ad sint voluptas ipsum doloremque nulla officia deleniti!</p>
 
 
 <h2>Estructurales</h2>
+<h3>If/Else</h3>
+<p *ngIf="mostrar" #ng>Se muestra si mostrar == true </p>
+<p *ngIf="!mostrar">Se muestra si mostrar == false </p>
+
+<p *ngIf="mostrar; else else1" #ng>(IF1)Se muestra si mostrar == true </p>
+<ng-template #else1>
+  <p> (ELSE1): Se muestra si mostrar == false</p>
+</ng-template>
+
+<div *ngIf="mostrar; then if2 else else2"></div>
+<ng-template #if2>
+  <p> (IF2): Se muestra si mostrar == true</p>
+</ng-template>
+<ng-template #else2>
+  <p> (ELSE2): Se muestra si mostrar == false</p>
+</ng-template>
+
+<button type="button" (click)="cambiarMostar()">Mostrando {{mostrar}}</button>
+
+<ul>
+  <li *ngFor="let elem of items; let pos = index">
+    {{pos}}: {{elem}}
+  </li>
+</ul>
+<ul>
+  <li *ngFor="let elem of persona | keyvalue; let pos = index">
+    {{elem.key | titlecase }}: {{elem.value}}
+  </li>
+</ul>
+
+<h3>Switch</h3>
+<div [ngSwitch]="mascota">
+  <p *ngSwitchCase="'perro'">Tengo un perro</p>
+  <p *ngSwitchCase="'dinosaurio'">Tengo un dinosaurio</p>
+  <p *ngSwitchDefault>Tengo otra mascota</p>
+</div>

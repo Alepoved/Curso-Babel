@@ -1,0 +1,5 @@
+<h1>Mi CV interactivo</h1>
+<div id="cont">
+    <app-cv (nombre)="nombre=$event" (apellido)="apellido=$event" (email)="email=$event" (fechaN)="fechaN=$event" (imagen)="imagen=$event" (skills)="skills=$event"></app-cv>
+    <app-informacion [nombre] ="nombre" [apellido]="apellido" [email]="email" [fechaN]="fechaN" [imagen]="imagen" [skills]="skills"></app-informacion>
+</div>

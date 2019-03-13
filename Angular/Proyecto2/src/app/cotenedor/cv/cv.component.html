@@ -1,0 +1,20 @@
+
+
+  <div id="form">
+  
+  <fieldset>
+    <legend>Datos:</legend>
+    Name: <input type="text" size="30" (input)="cambiarNombre($event.target.value)"><br>
+    Surname: <input type="text" size="30" (input)="cambiarApellido($event.target.value)"><br>
+    Email: <input type="text" size="30" (input)="cambiarEmail($event.target.value)"><br>
+    Date of birth: <input type="date" size="10" (input)="cambiarFechaN($event.target.value)"><br>
+    Picture: <input type="text" src="/assets/homer.jpg" size="10" (input)="cambiarImagen($event.target.value)"><br>
+    Skills: <input type="text" #skill size="10"><br> <button type="button" (click)="cambiarSkills(skill.value)">+</button>
+
+  </fieldset>
+ 
+  </div>
+      
+     
+
+

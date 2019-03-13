@@ -1,0 +1,17 @@
+#info{
+    margin:20px;
+    width: 500px;
+    background-color: aqua;
+
+}
+
+#info fieldset
+{
+    border: 1px solid black;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+    border-radius: 8px;
+    margin: 0 5px;
+    height: 100%;
+}
+

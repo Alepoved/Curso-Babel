@@ -24,3 +24,38 @@ function getDatos() {
     });
     xhr.send();
 }
+
+function getDatosV2(){
+    return fetch(URL_DATOS)
+        .then(resp => {
+            return resp.json();
+        })
+        .then(datos =>{
+            console.log(datos);
+            arrayDatos = [];
+            for(let i in datos){
+                arrayDatos.push(`<li> ${datos[i].concept} : ${datos[i].qty}</li>`);
+                total += Number(datos[i].qty);
+                document.getElementById("datos").innerHTML = arrayDatos.join("");
+                document.getElementById("total").textContent = total +"€";
+            }
+        })
+}
+
+getDatosV2()
+
+const btn = document.getElementById("btn-add");
+btn.addEventListener("click",sendDatos());
+
+function sendDatos(){
+    const concepto = document.getElementById("concepto").value;
+    const cantidad = document.getElementById("cantidad").value;
+    fetch(URL_DATOS, {
+        method: "POST",
+        body: JSON.stringify({concept: concepto, qty: cantidad})
+    }).then(resp => resp.json())
+    .then(dato => {
+        console.log(dato);
+        getDatosV2();
+    })  
+}

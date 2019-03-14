@@ -36,10 +36,13 @@ export class CVComponent implements OnInit {
   cambiarImagen(nuevaImagen: File){
     this.imagen.emit(nuevaImagen);
   }
-  cambiarSkills(nuevaSkills: Array<string>){
+  cambiarSkills(nuevaSkills:any){
 
-    this.arraySkills.push(nuevaSkills);
+    this.arraySkills.push(nuevaSkills.value);
+    nuevaSkills.value="";
     console.log(this.arraySkills);
     this.skills.emit(this.arraySkills);
+    document.getElementsByName("skills");
+  
   }
 }

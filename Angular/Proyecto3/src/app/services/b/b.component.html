@@ -1,0 +1,7 @@
+<h2>Componente B</h2>
+<input type="text" #dato>
+<button type="button" (click)="addDato(dato)">Add dato</button>
+<h3>Datos</h3>
+<ul>
+  <li *ngFor="let elem of datos">{{elem}}</li>
+</ul>

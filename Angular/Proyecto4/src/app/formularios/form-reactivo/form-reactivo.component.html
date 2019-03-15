@@ -1,0 +1,29 @@
+<h2>Reactivo</h2>
+
+<form [formGroup]="miForm" (ngSubmit)="sendDatos()">
+  <div>
+    <label for="usuario">Usuario:</label>
+    <input type="text" id="usuario" formControlName="usuario">
+    <p *ngIf="miForm.controls.usuario.invalid && miForm.controls.usuario.invalid" style="color:red">Campo incorrecto</p>
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" id="password" formControlName="password">
+    <p *ngIf="miForm.controls.password.invalid && miForm.controls.password.invalid" style="color:red">Campo incorrecto</p>
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" formControlName="email">
+    <p *ngIf="miForm.controls.email.invalid && miForm.controls.email.invalid" style="color:red">Campo incorrecto</p>
+  </div>
+  <div formArrayName="skills">
+    <div>
+        <label>Skills:</label>
+        <input type="text" (change)="addSkill($event.target.value)">
+    </div>
+    
+    <input *ngFor="let elem of miForm.controls.skills.controls; let pos = index" type="text" [formControlName]="pos">
+  </div>
+  <button type="submit" [disabled]="miForm.invalid">Enviar</button>
+  
+</form>

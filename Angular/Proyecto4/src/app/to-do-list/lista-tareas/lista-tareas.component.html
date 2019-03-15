@@ -1,0 +1,19 @@
+<h1>Tareas</h1>
+
+<!-- <ul>
+  <li *ngFor="let elem of arrayTareas">{{elem.nombre}}
+    <button type="button">Eliminar</button>
+    <button type="button" (click)="tacharTarea(elem)">Tachar</button>
+    <button type="button" (click)="tacharTarea(elem)">Completada</button>
+  </li>
+</ul> -->
+
+<div>
+    <ul>
+        <li *ngFor="let elem of lista" [ngClass]="{completada:elem.completa}" >{{elem.nombre}}
+          <button type="button" (click)="deleteTarea(elem)">Eliminar</button>
+          <button type="button" (click)="changeTarea(elem)">Completada </button>
+        </li>
+      </ul>
+
+</div>

@@ -22,4 +22,9 @@ export class AComponent implements OnInit {
     newDato.value="";
   }
 
+  sendDato(newDato: HTMLInputElement){
+    this.datosService.sendDatos(newDato.value);
+    newDato.value="";
+  }
+
 }

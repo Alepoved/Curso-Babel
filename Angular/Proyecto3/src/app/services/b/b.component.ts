@@ -10,10 +10,14 @@ import { DatosService } from '../datos.service';
 export class BComponent implements OnInit {
 
   datos=[];
+  datoRecibido = "";
   constructor(private datosService: DatosService) { }
 
   ngOnInit() {
     this.datos = this.datosService.getDatos();
+    this.datosService.datoEmitter.subscribe(dato => {
+      this.datoRecibido = dato;
+    });
   }
 
   addDato(newDato: HTMLInputElement){

@@ -10,9 +10,13 @@ import { DatosService } from './datos.service';
 })
 export class ServicesComponent implements OnInit {
 
-  constructor(private logService: LogService) { }
+  constructor(private logService: LogService, private datosService: DatosService) { }
 
+  datoRecibido = "";
   ngOnInit() {
+    this.datosService.datoEmitter.subscribe(elem => {
+      this.datoRecibido = elem;
+    })
   }
 
   mostrarMsg(){

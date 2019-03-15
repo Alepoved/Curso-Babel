@@ -1,4 +1,11 @@
 <h1>Agregar Tarea</h1>
 
-<input type="text" #tarea>
-<button button="button" (click)="addTarea(tarea)">Agregar</button>
+<input type="text" #tarea id="tarea">
+<button type="button" (click)="addTarea(tarea)">Agregar</button>
+
+
+<!-- <form [formGroup]="miForm" (ngSubmit)="sendTarea()">
+        <input type="text" #tarea id="tarea" formControlName="nombre">
+        <p *ngIf="miForm.controls.nombre.invalid" style="color:red">Campo incorrecto</p>
+        <button type="submit" [disabled]="miForm.invalid">Agregar</button>
+</form> -->

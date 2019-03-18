@@ -1,9 +1,9 @@
 import { Injectable,EventEmitter } from '@angular/core';
 import { LogService } from './log.service';
 
-// @Injectable({
-//   providedIn: 'root'
-// })
+@Injectable({
+  providedIn: 'root'
+})
 export class DatosService {
   
   datos = ["dato1"];

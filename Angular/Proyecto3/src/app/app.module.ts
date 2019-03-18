@@ -5,8 +5,11 @@ import { AppComponent } from './app.component';
 import { ServicesComponent } from './services/services.component';
 import { AComponent } from './services/a/a.component';
 import { BComponent } from './services/b/b.component';
-import { ListaComponent } from './to-do-list/lista/lista.component';
-import { AgregarTareaComponent } from './to-do-list/agregar-tarea/agregar-tarea.component';
+import { TareasComponent } from './tareas/tareas.component';
+import { AgregarTareaComponent } from './tareas/agregar-tarea/agregar-tarea.component';
+import { ListaTareasComponent } from './tareas/lista-tareas/lista-tareas.component';
+
+
 
 
 @NgModule({
@@ -15,8 +18,9 @@ import { AgregarTareaComponent } from './to-do-list/agregar-tarea/agregar-tarea.
     ServicesComponent,
     AComponent,
     BComponent,
-    ListaComponent,
+    TareasComponent,
     AgregarTareaComponent,
+    ListaTareasComponent,
   ],
   imports: [
     BrowserModule

@@ -1,5 +1,8 @@
 <h2>Lista tareas</h2>
 
 <ul>
-    <li *ngFor="let item of arrayTareas">{{ item.nombre }} {{item.completa}}</li>
+    <li *ngFor="let item of arrayTareas" [ngClass]="{'completada': item.completa}">{{ item.nombre }} {{item.completa}}
+      <button type="button" (click)="tachar(item)">Hecho</button>
+      <button type="button" (click)="eliminar(item)">Eliminar</button>
+    </li>
 </ul>

@@ -17,4 +17,13 @@ export class ListaTareasComponent implements OnInit {
     this.arrayTareas = this.service.getTareas();
   }
 
+  tachar(item:Tarea){
+    item.completa = !item.completa;
+  }
+
+  eliminar(item:Tarea){
+    let pos = this.arrayTareas.indexOf(item);
+    this.arrayTareas.splice(pos,1);
+  }
+
 }

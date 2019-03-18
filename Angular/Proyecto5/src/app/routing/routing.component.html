@@ -1,0 +1,11 @@
+<h1>Routing</h1>
+
+<hr>
+  <a [routerLink]="['/']">Inicio</a> |
+  <a [routerLink]="['/usuario/1']">Usuario 1</a>
+  <a [routerLink]="['/usuario/2']">Usuario 2</a>
+  <a [routerLink]="['/nuevo-usuario']">Nuevo Usuario</a>
+<hr>
+<p>Contador: {{ contadorService.cont }} <button type="button" (click)="contadorService.cont = contadorService.cont + 1">+</button></p>
+<router-outlet></router-outlet>
+

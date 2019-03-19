@@ -1,0 +1,21 @@
+let express = require('express')
+let bodyParser = require("body-parser")
+
+let personasRest = require("./apis-rest/personasRest.js")
+
+let app = express()
+
+app.use(bodyParser.json())
+app.use('/', personasRest.router)
+
+app.use(function(request, response, next){
+    console.log("PETICIÓN RECIBIDA:"+request.method)
+    next()
+})
+app.use(function(request, response){
+    console.log("CON SU NO SE QUE Y SU NO SE CUANTOS")
+})
+
+app.listen(7000, function(){
+    console.log("Esperando peticiones...")
+})

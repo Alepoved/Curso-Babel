@@ -1,0 +1,13 @@
+<h1>Observables</h1>
+
+<ul>
+  <li *ngFor="let item of students">
+    <p>Nombre: {{item.name}}</p>
+    <p>Identificacion: {{item.id}}</p>
+    <p>Instituto: {{item.college}}</p>
+    <p>Universidad: {{item.university}}</p>
+    <input type="text" #studentName>
+    <button type="button" (click)="updateStudent(studentName)">Cambiar nombre</button>
+  </li>
+</ul>
+

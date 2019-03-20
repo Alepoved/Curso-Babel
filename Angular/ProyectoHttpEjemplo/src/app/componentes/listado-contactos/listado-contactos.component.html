@@ -1,0 +1,43 @@
+<br/>
+<h3 class="text-center">
+    Gestión de contactos
+</h3>
+<br/> 
+
+<div  class="row">
+    
+    <div class="col-xs-12 col-sm-8 offset-sm-2">
+        
+        <!--
+        <div class="alert alert-danger" id="mensajeError">
+            <strong>Error:</strong> <span id="textoError"></span>
+        </div>  
+        -->
+
+        <div class="text-center">
+            <input type="button" class="btn btn-primary" value="Nuevo" routeLink="/formularioContactos"/>
+        </div>
+
+        <br/>
+
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Dirección</th>
+                    <th>Teléfono</th>
+                    <th>Correo E</th>
+                </tr>
+            </thead>
+            <!--<tr *ngFor="let p of personas" routerLink="/formularioContactos/{{p.id}}">-->
+            <tr *ngFor="let p of personas" [routerLink]="['/formularioContactos',p.id]">
+                <td>{{p.nombre}}</td>
+                <td>{{p.direccion}}</td>
+                <td>{{p.telefono}}</td>
+                <td>{{p.correoE}}</td>
+            </tr>
+        </table>
+
+    </div>
+            
+</div>

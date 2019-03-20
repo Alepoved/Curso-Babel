@@ -15,16 +15,13 @@ export class PostComponent implements OnInit {
 
 
   listaPost:Post;
-  listaUser:any;
+  listaUser:User;
 
 
-  constructor(private postService: PostService,private userService: UserService) {
-    this.listarPost();
-    
-   }
+  constructor(private postService: PostService,private userService: UserService) { }
 
   ngOnInit() {
-  
+    this.listarPost();
   }
 
   listarPost(){
@@ -33,7 +30,7 @@ export class PostComponent implements OnInit {
         data => this.buscarUsuarios(data),
         // data => this.listaPost = data,
         err => console.log(err)
-    )  
+    )
   }
 
   listaUsers(){
@@ -45,10 +42,11 @@ export class PostComponent implements OnInit {
   }
 
   buscarUsuarios(data){
-    // this.listaPost = data;
+    this.listaPost = data;
+    // console.log(data);
     for(let post of data){
       this.userService.buscarUser(post.userId).subscribe(
-        data => this.listaUser = data,
+        data2 => this.listaUser = data2,
         err => console.log(err)
       );
     }

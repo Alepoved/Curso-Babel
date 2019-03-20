@@ -13,9 +13,10 @@ export class ListadoPostComponent implements OnInit {
 
   constructor(private postService:PostComponent) { }
   @Input() post: Post;
-  @Input() user: any;
+  @Input() user: User;
   ngOnInit() {
     // this.listaPost = this.postService.listar();
+    // console.log(this.user);
   }
 
 }

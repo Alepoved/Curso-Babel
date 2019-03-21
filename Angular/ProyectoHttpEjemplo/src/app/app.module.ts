@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { RouterModule,Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
@@ -23,13 +23,14 @@ let rutas = [
     CabeceraComponent,
     MenuComponent,
     ListadoContactosComponent,
-    FormularioContactosComponent
+    FormularioContactosComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule, //Para que funcionen los [(ngModel)]
     RouterModule.forRoot(rutas),
-    HttpClientModule //Para disponer del objeto HttpClient
+    HttpClientModule, //Para disponer del objeto HttpClient
+    RouterModule
   ],
   providers: [ ],
   bootstrap: [AppComponent]

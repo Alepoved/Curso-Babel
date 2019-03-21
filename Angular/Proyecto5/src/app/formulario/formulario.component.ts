@@ -9,11 +9,7 @@ import { Router } from '@angular/router';
 })
 export class FormularioComponent implements OnInit {
 
-  data = {
-    name: "",
-    surname: "",
-    username: "",
-  }
+ 
   constructor(private route:Router) { }
 
   ngOnInit() {

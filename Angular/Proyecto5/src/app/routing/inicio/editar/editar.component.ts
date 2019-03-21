@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CmpCanDeactivate } from './editar.guard';
+// import { CmpCanDeactivate } from './editar.guard';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   templateUrl: './editar.component.html',
   styleUrls: ['./editar.component.css']
 })
-export class EditarComponent implements OnInit,CmpCanDeactivate {
+export class EditarComponent implements OnInit/*,CmpCanDeactivate*/ {
   
  
   datosGuardados = false;

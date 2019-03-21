@@ -9,6 +9,8 @@ import { ROUTING } from './routing/app.routes';
 import { UsuarioComponent } from './routing/usuario/usuario.component';
 import { EditarComponent } from './routing/inicio/editar/editar.component';
 import { InfoComponent } from './routing/inicio/info/info.component';
+import { FormularioComponent } from './formulario/formulario.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,11 +20,13 @@ import { InfoComponent } from './routing/inicio/info/info.component';
     NuevoUsuarioComponent,
     UsuarioComponent,
     EditarComponent,
-    InfoComponent
+    InfoComponent,
+    FormularioComponent
   ],
   imports: [
     BrowserModule,
-    ROUTING
+    ROUTING,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

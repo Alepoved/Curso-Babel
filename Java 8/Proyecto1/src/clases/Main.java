@@ -2,7 +2,7 @@ package clases;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) { //al ser un metodo estatico no puedes acceder con this
 		Persona p = new Persona();
 		crearObj();
 		
@@ -33,8 +33,18 @@ public class Main {
 		d1.setPais("Españita");
 		
 		p.setDireccion(d1);
+		
+		p.setNumeroPersona(1);
+		System.out.println("Numero de persona: "+p.getNumeroPersona());
 		System.out.println(p);
+		
+		Main main = new Main();
+		main.saludar();
 }
+	
+	public void saludar() {
+		System.out.println("Hola");
+	}
 	
 	
 

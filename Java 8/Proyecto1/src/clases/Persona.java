@@ -7,11 +7,23 @@ public class Persona {
 	private int edad;
 	private Direccion direccion;
 	
+	public static int numeroPersona;
+	
 	public Persona(double a, String n,int e) {
 		this.altura = a;
 		this.nombre = n;
 		this.edad = e;
 	}
+	
+	
+	public static int getNumeroPersona() {
+		return numeroPersona;
+	}
+
+	public static void setNumeroPersona(int numeroPersona) {
+		Persona.numeroPersona = numeroPersona;
+	}
+
 	
 	public Persona() {}
 	

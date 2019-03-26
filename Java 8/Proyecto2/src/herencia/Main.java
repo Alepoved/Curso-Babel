@@ -25,7 +25,7 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		do {
 			
-			System.out.println("0-Alta, 1-Listar, 2-Salir");
+			System.out.println("0-Alta, 1-Listar, 2-Baja");
 			opcion = sc.nextInt();
 			
 		}while(opcion<0 && opcion>3);
@@ -45,10 +45,11 @@ public class Main {
 	private static void baja(String nombre) {
 		boolean encontrado = false;int i = 0;
 		while(!encontrado){
-			if(lista.get(i).nombre == nombre)encontrado=true;
+			if(lista.get(i).getNombre().equalsIgnoreCase(nombre)){
+				lista.remove(i); encontrado = true;
+			}
 			i++;
 		}
-		lista.remove(i-1);
 	}
 
 	private static void listar() {

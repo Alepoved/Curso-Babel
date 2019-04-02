@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 4 alcances
+singleton: unico en toda la aplicacion(default scope)
+prototype: prototipado y clonado cada vez que se necesite. Ciclo de vida depende de nosotros
+request
+session
+ -->
+ 
+	<bean id="personaBean" class="Spring3.Persona" scope="prototype"></bean>
+	<bean id="carlos" class="Spring3.Persona" scope="singleton">
+		<property name="nombre" value="Carlos"></property>
+		<property name="edad" value="45"></property>
+		<property name="peso" value="75.6"></property>
+		<property name="direccion">
+			<bean class="Spring3.Direccion">
+				<property name="nombreVia" value="Merida"></property>
+				<property name="tipoVia" value="calle"></property>
+				<property name="codigoP" value="28030"></property>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="direccionLaura" class="Spring3.Direccion">
+				<property name="nombreVia" value="Gran via"></property>
+				<property name="tipoVia" value="calle"></property>
+				<property name="codigoP" value="28030"></property>
+	</bean>
+	
+	<bean id="Laura" class="Spring3.Persona">
+		<property name="nombre" value="Carlos"></property>
+		<property name="edad" value="45"></property>
+		<property name="peso" value="75.6"></property>
+		<property name="direccion" ref="direccionLaura"></property>
+	</bean>
+	
+	<bean id="listaPersonas" class="java.util.ArrayList"></bean>
+
+</beans>

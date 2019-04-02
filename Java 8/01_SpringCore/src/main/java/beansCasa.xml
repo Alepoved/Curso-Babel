@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="dir" class="Casa.Direccion">
+		<property name="tipoVia" value="calle"></property>
+		<property name="nombreVia" value="falsa123"></property>
+		<property name="codigoPostal" value="28040"></property>
+</bean>
+
+<bean id="listaHabitaciones" class="java.util.ArrayList">
+			<constructor-arg>
+				<list value-type="Habitacion">
+					
+						<bean id="baño" class="Casa.Habitacion" scope="singleton">
+							<constructor-arg index="0" value="baño"></constructor-arg>
+							<constructor-arg index="1" value="50"></constructor-arg>
+						</bean>
+				
+					
+						<bean id="salon" class="Casa.Habitacion" scope="singleton">
+							<constructor-arg index="0" value="salon"></constructor-arg>
+							<constructor-arg index="1" value="10"></constructor-arg>
+						</bean>
+					
+					
+						<bean id="mazmorra" class="Casa.Habitacion" scope="singleton">
+							<constructor-arg index="0" value="mazmorra"></constructor-arg>
+							<constructor-arg index="1" value="200"></constructor-arg>
+						</bean>
+					
+					
+				</list>
+			</constructor-arg>
+		</bean>
+		
+		<bean id="listaInquilinos" class="java.util.ArrayList">
+			<constructor-arg>
+				<list value-type="Persona">
+					
+						<bean id="inq1" class="Casa.Persona" scope="singleton">
+							<constructor-arg index="0" value="Pedro"></constructor-arg>
+							<constructor-arg index="1" value="20"></constructor-arg>
+							<constructor-arg index="2" value="50"></constructor-arg>
+							<constructor-arg index="3" ref="dir"></constructor-arg>
+						</bean>
+				
+					
+						<bean id="inq2" class="Casa.Persona" scope="singleton">
+							<constructor-arg index="0" value="Belen"></constructor-arg>
+							<constructor-arg index="1" value="50"></constructor-arg>
+							<constructor-arg index="2" value="50"></constructor-arg>
+							<constructor-arg index="3" ref="dir"></constructor-arg>
+						</bean>
+					
+					
+						<bean id="inq3" class="Casa.Persona" scope="singleton">
+							<constructor-arg index="0" value="Maria"></constructor-arg>
+							<constructor-arg index="1" value="50"></constructor-arg>
+							<constructor-arg index="2" value="50"></constructor-arg>
+							<constructor-arg index="3" ref="dir"></constructor-arg>
+						</bean>
+					
+					
+				</list>
+			</constructor-arg>
+		</bean>
+		
+		
+
+
+
+<bean id="prop" class="Casa.Persona">
+		<property name="nombre" value="Fermin"></property>
+		<property name="altura" value="10"></property>
+		<property name="edad" value="9999"></property>
+		<property name="Direccion" ref="dir"></property>
+</bean>
+
+	<bean id="casa" class="Casa.Casa">
+		<property name="precio" value="100"></property>
+		<property name="direccion" ref="dir"></property>
+		<property name="propietario" ref="prop"></property>
+		<property name="estaAlquilada" value="true"></property>
+		<property name="habitaciones" ref="listaHabitaciones"></property>
+		<property name="inquilinos" ref="listaInquilinos"></property>
+		
+	</bean>
+	
+
+
+</beans>

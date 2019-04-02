@@ -29,18 +29,17 @@ public class DaoVideojuegoMySql implements DaoVideojuego {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
 	public boolean openConnection() {
-		String url = "jdbc:mysql://localhost:3306/personas_bbdd?useUnicode=true&&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+		String url = "jdbc:mysql://localhost:3306/videojuegos_schema?useUnicode=true&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 		String user = "root";
 		String pass = "password";
 		
 		try {
-			DriverManager.getConnection(url);
+			connection = DriverManager.getConnection(url,user,pass);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -57,6 +56,9 @@ public class DaoVideojuegoMySql implements DaoVideojuego {
 	}
 	@Override
 	public boolean create(Videojuego v) {
+		if(!openConnection())
+			return false;
+		
 		boolean exito = true;
 		
 		String qwery = "insert into videojuegos (nombre,company,valoracion,precio) values (?,?,?,?)";
@@ -65,17 +67,22 @@ public class DaoVideojuegoMySql implements DaoVideojuego {
 			ps.setString(1, v.getNombre());
 			ps.setString(2, v.getCompany());
 			ps.setDouble(3, v.getValoracion());
+			ps.setDouble(4, v.getPrecio());
 			int colUpdated = ps.executeUpdate();
 			if(colUpdated == 0) exito = false;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		closeConnection();
 		return exito;
+		
 	}
 
 	@Override
 	public boolean delete(int id) {
+		if(!openConnection())
+			return false;
+		
 		boolean exito = true;
 		
 		String qwery = "delete from videojuegos where id=?";
@@ -87,32 +94,40 @@ public class DaoVideojuegoMySql implements DaoVideojuego {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		closeConnection();
 		return exito;
 		
 	}
 
 	@Override
 	public boolean update(int id,Videojuego v) {
+		if(!openConnection())
+			return false;
+		
 		boolean exito = true;
 		
-		String qwery = "update videojuegos set nombre=?,company=?,valoracion=?,precio=? where id=?  where id=?";
+		String qwery = "update videojuegos set nombre=?,company=?,valoracion=?,precio=? where id=?";
 		try {
 			PreparedStatement ps = connection.prepareStatement(qwery);
 			ps.setString(1,v.getNombre());
 			ps.setString(2,v.getCompany());
 			ps.setDouble(3,v.getValoracion());
 			ps.setDouble(4,v.getPrecio());
-			/*ps.setDouble(4,CONSEGUIR ID);*/
+			ps.setDouble(5,id);
 			int colUpdated = ps.executeUpdate();
 			if(colUpdated == 0) exito = false;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		closeConnection();
 		return exito;
 	}
 
 	@Override
 	public Videojuego read(int id) {
+		if(!openConnection())
+			return null;
+		
 		String qwery = "select * from videojuegos where id=?";
 		Videojuego v = null;
 		try {
@@ -131,11 +146,15 @@ public class DaoVideojuegoMySql implements DaoVideojuego {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		closeConnection();
 		return v;
 	}
 
 	@Override
 	public List<Videojuego> list() {
+		if(!openConnection())
+			return null;
+		
 		String qwery = "select * from videojuegos";
 		Videojuego v = null;
 		List<Videojuego> lista = null;
@@ -143,24 +162,28 @@ public class DaoVideojuegoMySql implements DaoVideojuego {
 			PreparedStatement ps = connection.prepareStatement(qwery);
 			ResultSet rs = ps.executeQuery();
 			lista = new ArrayList<>();
-			if(rs.next()) {
+			while(rs.next()) {
 				v = new Videojuego();
 				v.setId(rs.getInt(1));
 				v.setNombre(rs.getString(2));
 				v.setCompany(rs.getString(3));
 				v.setValoracion(rs.getDouble(4));
 				v.setPrecio(rs.getDouble(5));
-				return lista;
+				lista.add(v);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		closeConnection();
 		return lista;
 	}
 
 	@Override
 	public Videojuego readByNombre(String nombre) {
+		if(!openConnection())
+			return null;
+		
 		String qwery = "select * from videojuegos where nombre=?";
 		Videojuego v = null;
 		try {
@@ -178,7 +201,44 @@ public class DaoVideojuegoMySql implements DaoVideojuego {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		closeConnection();
 		return v;
+	}
+
+	@Override
+	public double getValoraciones() {
+		if(!openConnection())
+			return -1;
+		String qwery = "select avg(valoracion) from videojuegos";
+		double res = -1;
+		try {
+			PreparedStatement ps = connection.prepareStatement(qwery);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next())
+				res = rs.getDouble(1);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		closeConnection();
+		return res;
+	}
+
+	@Override
+	public double getPrecios() {
+		if(!openConnection())
+			return -1;
+		String qwery = "select avg(precio) from videojuegos";
+		double res = -1;
+		try {
+			PreparedStatement ps = connection.prepareStatement(qwery);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next())
+				res = rs.getDouble(1);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		closeConnection();
+		return res;
 	}
 
 }

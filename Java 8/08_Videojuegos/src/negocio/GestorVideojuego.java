@@ -1,5 +1,6 @@
 package negocio;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -25,7 +26,7 @@ public class GestorVideojuego {
 	
 	public static boolean conditions(Videojuego v) {
 		DaoVideojuegoMySql dao = DaoVideojuegoMySql.getInstance();
-		if(v.getCompany().equalsIgnoreCase("") || !dao.readByNombre(v.getNombre()).equals(null))//nombre no se repita
+		if(v.getCompany().equalsIgnoreCase("") || dao.readByNombre(v.getNombre())!=null || v.getValoracion()<-1 || v.getValoracion()>10 || v.getPrecio()<-1)//nombre no se repita
 			return false;
 		
 		return true;
@@ -52,8 +53,23 @@ public class GestorVideojuego {
 		daoVideojuego = DaoVideojuegoMySql.getInstance();
 		return daoVideojuego.read(id);
 	}
+	
+	public Videojuego readByNombre(String nombre) {
+		daoVideojuego = DaoVideojuegoMySql.getInstance();
+		return daoVideojuego.readByNombre(nombre);
+	}
 	public List<Videojuego> list() {
 		daoVideojuego = DaoVideojuegoMySql.getInstance();
 		return daoVideojuego.list();
+	}
+
+	public double getValoraciones() {
+		daoVideojuego = DaoVideojuegoMySql.getInstance();
+		return daoVideojuego.getValoraciones();
+	}
+
+	public double getPrecio() {
+		daoVideojuego = DaoVideojuegoMySql.getInstance();
+		return daoVideojuego.getPrecios();
 	}
 }

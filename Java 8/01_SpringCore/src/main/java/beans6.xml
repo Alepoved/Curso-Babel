@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 
+	Autowire
+	Caracteristica que trata de inyectar una dependencia a otro objeto de manera automatica
+	Cuando usamos el autowire, Spring intentara inyectar un objeto a otro dependiendo de sus necesidades
+		byType -> inyectara un objeto segun el tipo
+		byName -> inyectara un objeto segun el id 
+	 -->
+	<bean id="persona" class="Spring6.Persona" autowire="byName">
+		<property name="nombre" value="Federico"></property>
+		<property name="altura" value="10"></property>
+		<property name="edad" value="9999"></property>
+	</bean>
+	
+	<bean id="direccion" class="Spring6.Direccion">
+		<property name="tipoVia" value="calle"></property>
+		<property name="nombreVia" value="falsa123"></property>
+		<property name="codigoP" value="28040"></property>
+	</bean>
+	
+	<bean id="direccion2" class="Spring6.Direccion">
+		<property name="tipoVia" value="calle"></property>
+		<property name="nombreVia" value="falsa123"></property>
+		<property name="codigoP" value="28040"></property>
+	</bean>
+	
+
+</beans>

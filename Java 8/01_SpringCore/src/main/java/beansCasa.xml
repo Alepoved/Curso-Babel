@@ -85,7 +85,6 @@
 		<property name="estaAlquilada" value="true"></property>
 		<property name="habitaciones" ref="listaHabitaciones"></property>
 		<property name="inquilinos" ref="listaInquilinos"></property>
-		
 	</bean>
 	
 

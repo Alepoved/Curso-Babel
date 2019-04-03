@@ -3,14 +3,18 @@ package negocio;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import entidades.Videojuego;
 import persistencia.DaoVideojuego;
 import persistencia.DaoVideojuegoMySql;
 
+@Service
 public class GestorVideojuego {
 
 	private static GestorVideojuego instance = null;
+	@Autowired
 	private DaoVideojuego daoVideojuego;
 	
 	private GestorVideojuego() {

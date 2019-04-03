@@ -7,12 +7,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Repository;
+
 import entidades.Videojuego;
 
+@Repository
 public class DaoVideojuegoMySql implements DaoVideojuego {
 
 	private Connection connection;
 	private static DaoVideojuegoMySql instance = null;
+	
+	public static ApplicationContext context;
 	
 	private DaoVideojuegoMySql() {
 		super();
@@ -28,6 +36,7 @@ public class DaoVideojuegoMySql implements DaoVideojuego {
 	static {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
+			context = new ClassPathXmlApplicationContext("beans.xml");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -135,7 +144,8 @@ public class DaoVideojuegoMySql implements DaoVideojuego {
 			ps.setInt(1,id);
 			ResultSet rs = ps.executeQuery();
 			if(rs.next()) {
-				v = new Videojuego();
+				//v = new Videojuego();
+				v = context.getBean("videojuego",Videojuego.class);
 				v.setId(rs.getInt(1));
 				v.setNombre(rs.getString(2));
 				v.setCompany(rs.getString(3));
@@ -143,7 +153,6 @@ public class DaoVideojuegoMySql implements DaoVideojuego {
 				v.setPrecio(rs.getDouble(5));
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		closeConnection();
@@ -163,7 +172,8 @@ public class DaoVideojuegoMySql implements DaoVideojuego {
 			ResultSet rs = ps.executeQuery();
 			lista = new ArrayList();
 			while(rs.next()) {
-				v = new Videojuego();
+				//v = new Videojuego();
+				v = context.getBean("videojuego",Videojuego.class);
 				v.setId(rs.getInt(1));
 				v.setNombre(rs.getString(2));
 				v.setCompany(rs.getString(3));
@@ -191,7 +201,8 @@ public class DaoVideojuegoMySql implements DaoVideojuego {
 			ps.setString(1,nombre);
 			ResultSet rs = ps.executeQuery();
 			if(rs.next()) {
-				v = new Videojuego();
+				//v = new Videojuego();
+				v = context.getBean("videojuego",Videojuego.class);
 				v.setId(rs.getInt(1));
 				v.setNombre(rs.getString(2));
 				v.setCompany(rs.getString(3));

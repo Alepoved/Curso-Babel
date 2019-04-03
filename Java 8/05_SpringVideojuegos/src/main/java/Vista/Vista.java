@@ -9,6 +9,9 @@ import java.util.Scanner;
 import javax.swing.ActionMap;
 import javax.swing.InputMap;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import entidades.Videojuego;
 import negocio.GestorVideojuego;
 
@@ -16,6 +19,11 @@ public class Vista{
 
 	private Scanner sc = null;
 	private GestorVideojuego gv = null;
+	public static ApplicationContext context;
+	
+	static {
+		context = new ClassPathXmlApplicationContext("beans.xml");
+	}
 	
 public void arrancar() {
 		
@@ -139,7 +147,11 @@ public void arrancar() {
 		double valoracion = sc.nextDouble();
 		System.out.println("Introduzca precio:");
 		double precio = sc.nextDouble();
-		return new Videojuego(nombre,company,valoracion,precio);
+		//return new Videojuego(nombre,company,valoracion,precio);
+		Videojuego v = context.getBean("videojuego",Videojuego.class);
+		v.setNombre(nombre);v.setCompany(company);
+		v.setPrecio(precio);v.setValoracion(valoracion);
+		return v;
 	}
 
 	private int mostrarMenu() {

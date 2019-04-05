@@ -10,6 +10,6 @@
 	<context:component-scan base-package="vista"></context:component-scan>
 	<context:component-scan base-package="modelo.entidades"></context:component-scan>
 	<context:component-scan base-package="modelo.negocio"></context:component-scan>
-	<context:component-scan base-package="persistencia"></context:component-scan>
+	<context:component-scan base-package="modelo.persistencia"></context:component-scan>
 	
 </beans>

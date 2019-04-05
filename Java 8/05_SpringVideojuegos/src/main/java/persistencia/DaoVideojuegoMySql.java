@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Repository;
@@ -21,6 +22,10 @@ public class DaoVideojuegoMySql implements DaoVideojuego {
 	private static DaoVideojuegoMySql instance = null;
 	
 	public static ApplicationContext context;
+	
+	//version 2 no se accede como variable static
+	/*@Autowired
+	private ApplicationContext context2;*/
 	
 	private DaoVideojuegoMySql() {
 		super();
@@ -36,7 +41,7 @@ public class DaoVideojuegoMySql implements DaoVideojuego {
 	static {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			context = new ClassPathXmlApplicationContext("beans.xml");
+			context = new ClassPathXmlApplicationContext("beans.xml");//no necesario
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -146,6 +151,7 @@ public class DaoVideojuegoMySql implements DaoVideojuego {
 			if(rs.next()) {
 				//v = new Videojuego();
 				v = context.getBean("videojuego",Videojuego.class);
+				//v = Vista.Vista.context.getBean("videojuego",Videojuego.class);
 				v.setId(rs.getInt(1));
 				v.setNombre(rs.getString(2));
 				v.setCompany(rs.getString(3));

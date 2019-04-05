@@ -2,16 +2,21 @@ package vista;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import cmp.CmpKm;
 import cmp.CmpMarca;
 import cmp.CmpMatricula;
+import config.Configuracion;
 import modelo.entidades.Coche;
 import modelo.negocio.GestorCoches;
+
 
 public class Vista {
 	
@@ -19,8 +24,9 @@ public class Vista {
 	private GestorCoches ge = null;
 	public static ApplicationContext context;
 	
+	
 	static {
-		context = new ClassPathXmlApplicationContext("beans.xml");
+		context = new AnnotationConfigApplicationContext(Configuracion.class);
 	}
 	
 	public void arrancar() {
@@ -28,7 +34,7 @@ public class Vista {
 		//ge = new GestorCoches();
 		ge = context.getBean("gestorCoches",GestorCoches.class);
 		Coche c = null;
-		ArrayList<Coche> listaCoches = null;
+		List<Coche> listaCoches = null;
 		int opcion = 0;
 		do{
 			opcion = mostrarMenu();
@@ -70,31 +76,37 @@ public class Vista {
 		System.out.println("Fin del programa");
 	}
 
-	private void ordenarKm(ArrayList<Coche> listaCoches) {
-		Collections.sort(listaCoches, new CmpKm());
+	private void ordenarKm(List<Coche> listaCoches) {
+		//Collections.sort(listaCoches, new CmpKm());
+		CmpKm cmpKm = context.getBean("cpmKm",CmpKm.class);//getBean=getInstance. Es singleton por defecto
+		Collections.sort(listaCoches, cmpKm);
 		System.out.println("Ordanada km -> ");
 		for (Coche coche : listaCoches) {
 			System.out.println(coche);
 		}
 	}
 
-	private void ordenarMarca(ArrayList<Coche> listaCoches) {
-		Collections.sort(listaCoches, new CmpMarca());
+	private void ordenarMarca(List<Coche> listaCoches) {
+		CmpMarca cmpMarca = context.getBean("cpmMarca",CmpMarca.class);
+		//Collections.sort(listaCoches, new CmpMarca());
+		Collections.sort(listaCoches, cmpMarca);
 		System.out.println("Ordanada marcas -> ");
 		for (Coche coche : listaCoches) {
 			System.out.println(coche);
 		}
 	}
 
-	private void ordenarMatricula(ArrayList<Coche> listaCoches) {
-		Collections.sort(listaCoches, new CmpMatricula());
+	private void ordenarMatricula(List<Coche> listaCoches) {
+		CmpMatricula cmpMatricula = context.getBean("cpmMatricula",CmpMatricula.class);
+		//Collections.sort(listaCoches, new CmpMatricula());
+		Collections.sort(listaCoches, cmpMatricula);
 		System.out.println("Ordanada matriculas -> ");
 		for (Coche coche : listaCoches) {
 			System.out.println(coche);
 		}
 	}
 
-	private void mostrarListaCoches(ArrayList<Coche> listaCoches) {
+	private void mostrarListaCoches(List<Coche> listaCoches) {
 		for (Coche coche : listaCoches) {
 			System.out.println(coche);
 		}		

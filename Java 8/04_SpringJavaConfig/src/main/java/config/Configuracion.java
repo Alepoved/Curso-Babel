@@ -31,7 +31,7 @@ public class Configuracion {
 		return d;
 	}
 	
-	@Bean()
+	@Bean
 	public GestorPelicula gestorPelicula(DaoPelicula daoPelicula) {
 		GestorPelicula gp = new GestorPelicula();
 		gp.setDaoPelicula(daoPelicula);

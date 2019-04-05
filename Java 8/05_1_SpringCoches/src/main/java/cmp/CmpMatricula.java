@@ -2,8 +2,11 @@ package cmp;
 
 import java.util.Comparator;
 
+import org.springframework.stereotype.Component;
+
 import modelo.entidades.Coche;
 
+@Component
 public class CmpMatricula implements Comparator<Coche> {
 
 	@Override

@@ -9,6 +9,7 @@ import java.util.Scanner;
 import javax.swing.ActionMap;
 import javax.swing.InputMap;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -18,8 +19,9 @@ import negocio.GestorVideojuego;
 public class Vista{
 
 	private Scanner sc = null;
+	@Autowired
 	private GestorVideojuego gv = null;
-	public static ApplicationContext context;
+	public static ApplicationContext context; //Solo se crea un context public
 	
 	static {
 		context = new ClassPathXmlApplicationContext("beans.xml");
@@ -28,7 +30,8 @@ public class Vista{
 public void arrancar() {
 		
 		sc = new Scanner(System.in);
-		gv = GestorVideojuego.getInstance();
+		//gv = GestorVideojuego.getInstance();
+		gv = context.getBean("gestorVideojuego",GestorVideojuego.class);
 		Videojuego v = null;
 		List<Videojuego> listaV = null;
 		int opcion = 0,id=-1;

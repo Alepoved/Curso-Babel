@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 @Scope("prototype")
 public class Coche {
 
+	private int id;
 	private String matricula;
 	private String marca;
 	private double km;
@@ -44,10 +45,23 @@ public class Coche {
 	public void setModelo(String modelo) {
 		this.modelo = modelo;
 	}
+	
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	@Override
 	public String toString() {
-		return "Coche [matricula=" + matricula + ", marca=" + marca + ", km=" + km + ", modelo=" + modelo + "]";
+		return "Coche [id=" + id + ", matricula=" + matricula + ", marca=" + marca + ", km=" + km + ", modelo=" + modelo
+				+ "]";
 	}
+
+	
 	
 	
 	

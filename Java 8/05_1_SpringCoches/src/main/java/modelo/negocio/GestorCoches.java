@@ -1,15 +1,16 @@
 package modelo.negocio;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import modelo.entidades.Coche;
-import persistencia.DaoCoches;
+import modelo.persistencia.DaoCoches;
 
-@Service
+@Service("gestorCoches")
 public class GestorCoches {
 	
 	private static ArrayList<String> listaAux = new ArrayList<>();
@@ -28,7 +29,7 @@ public class GestorCoches {
 		
 	}
 
-	public ArrayList<Coche> getListaCoches() {
+	public List<Coche> getListaCoches() {
 		//return new DaoCoches().getListaCoches();
 		return daoCoches.getListaCoches();
 	}

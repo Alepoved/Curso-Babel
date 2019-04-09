@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	
 	<fieldset>
 	<legend><h1>Resumen del Pedido</h1></legend>
 	

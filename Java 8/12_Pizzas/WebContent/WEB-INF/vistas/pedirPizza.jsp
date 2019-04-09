@@ -14,7 +14,7 @@
 	
 	<form action="realizarPedido" method="post">
 	
-	Direccion entrega:<input type="text" name="direccion" required>
+	Direccion entrega:<input type="text" name="direccion" placeholder="calle falsa" required>
 	
 	<h3>Tamaño de la pizza</h3>
 	<input type="radio" name="tamaño" value="pequeño" checked>Pequeño(5 euros)

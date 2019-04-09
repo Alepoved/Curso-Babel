@@ -22,8 +22,10 @@ public class ControladorLogin {
 	@RequestMapping(path="formularioLogin",method=RequestMethod.GET)
 	//@RequestMapping("verFormularioSaludo")
 	//@GetMapping -> por defecto son todas get
-	public String verFormulario() {
-		return "formularioLogin";//WEB-INF/vistas/formulariosSaludos.jsp
+	public String verFormulario(HttpSession session) {
+		session.invalidate();
+		System.out.println("Sesion finalizada");
+		return "formularioLogin";
 	}
 
 	@RequestMapping(path="loginUsuario",method=RequestMethod.POST)
@@ -38,9 +40,9 @@ public class ControladorLogin {
 			path="formularioLogin";
 		else path="pedirPizza";
 		
-		ModelAndView mav = new ModelAndView(path);
+		session.setAttribute("nombre", nombre);
+		ModelAndView mav = new ModelAndView("redirect:"+path);
 		
-		mav.addObject("nombre",nombre);
 		return mav;
 	}
 }

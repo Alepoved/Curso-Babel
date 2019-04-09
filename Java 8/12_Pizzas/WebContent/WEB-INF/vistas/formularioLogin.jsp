@@ -7,11 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2 style="color:blue">"Pizzería sin piña"</h2>
+	<fieldset>
+	<legend><h2 style="color:blue">Pizzería</h2></legend>
+	<h3>Login</h3>
+	
 	<form action="loginUsuario" method="post">
 		Nombre: <input type="text" name="nombre">
 		Password: <input type="password" name="password">
 		<input type="submit" value="Login">
 	</form>
+	</fieldset>
+	
 </body>
 </html>

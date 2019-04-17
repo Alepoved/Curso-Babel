@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,17 +24,18 @@ public class ControladorCalculadora {
 	@Autowired
 	private GestorCalculadora gh;
 	
+	@CrossOrigin(origins="http://localhost:4200")
 	@GetMapping(path="{tipo}",produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Calculadora> operar(@PathVariable("tipo") String op,@RequestParam("op1") double op1,@RequestParam("op2") double op2){
 		Calculadora c = new Calculadora(op1,op2,op); 
 		System.out.println(op1);
 		System.out.println(op2);
 		System.out.println(op);
-	
 		c.calcular();
+		
 		try {
 			gh.create(c);
-			return new ResponseEntity<>(HttpStatus.CREATED);
+			return new ResponseEntity<>(c,HttpStatus.CREATED);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new ResponseEntity<Calculadora>(c,HttpStatus.BAD_REQUEST);

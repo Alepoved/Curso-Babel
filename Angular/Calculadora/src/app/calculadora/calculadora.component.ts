@@ -17,15 +17,28 @@ export class CalculadoraComponent implements OnInit {
   calculadora = {
     op1: "",
     op2: "",
-    op: ""
+    op: "",
+    res: 0
   }
+
 
   enviarDatos(miForm: NgForm){
    this.calculadora.op1 = miForm.value.op1;
    this.calculadora.op2 = miForm.value.op2;
+  /* var elems = document.getElementsByName("op");
+   elems.forEach(element => {
+     element.onchange = function(){
+       var c = element;
+     }
+   });
+  */
    this.calculadora.op = miForm.value.op;
-   this.service.insertar(this.calculadora);
-}
+   this.service.insertar(this.calculadora)
+      .subscribe(
+        data => this.calculadora.res = data.res,
+        err => console.log(err)
+      )
+  }
 
   
 

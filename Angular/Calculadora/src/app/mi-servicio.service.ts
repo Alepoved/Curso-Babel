@@ -8,10 +8,15 @@ import { Observable } from 'rxjs'
 })
 export class MiServicioService {
 
-  constructor() { }
+  constructor(private httpClient:HttpClient) { }
 
-  public insertar(calculadora)/*:Observable<any>*/{ 
-    console.log("Insertar"+calculadora.op1);
-   // return this.httpClient.post(ConfiguracionService.url+"/personas", persona);
+  url = "http://localhost:8080/";
+
+  public insertar(calculadora):Observable<any>{ 
+    console.log("OP1:"+calculadora.op1);
+    console.log("OP:"+calculadora.op);
+    console.log("OP2:"+calculadora.op2);
+    var url2 = calculadora.op+"?op1="+calculadora.op1+"&op2="+calculadora.op2;
+    return this.httpClient.get(this.url+url2);
   }
 }
